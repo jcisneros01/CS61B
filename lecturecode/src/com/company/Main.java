@@ -7,7 +7,9 @@ public class Main {
         L = new IntList(10, L);
         L = new IntList(5, L);
 
-        System.out.println(L.Size());
-        System.out.println(L.iterativeSize());
+        L.printList();
+        IntList squared = IntList.squareMutative(L);
+        squared.printList();
+        L.printList();
     }
 }

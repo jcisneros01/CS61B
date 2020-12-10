@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.List;
+
 public class IntList {
     public int first;
     public IntList rest;
@@ -35,5 +37,31 @@ public class IntList {
         }
 
         return rest.get(i-1);
+    }
+
+    public static IntList square(IntList L) {
+        if (L == null) {
+            return L;
+        }
+        IntList rest = square(L.rest);
+        IntList newList = new IntList(L.first * L.first, rest);
+        return newList;
+    }
+
+    public void printList() {
+        IntList p = this;
+        while (p != null) {
+            System.out.println(p.first);
+            p = p.rest;
+        }
+    }
+
+    public static IntList squareMutative(IntList L) {
+        IntList p = L;
+        while (p != null) {
+            p.first *= p.first;
+            p = p.rest;
+        }
+        return  L;
     }
 }
