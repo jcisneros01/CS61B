@@ -1,6 +1,16 @@
 package com.company;
 
 public class SLList {
+    public static class IntNode {
+        public int item;
+        public IntNode next;
+
+        public IntNode(int i, IntNode n) {
+            item = i;
+            next = n;
+        }
+    }
+
     private IntNode first;
 
     public SLList(int x) {
@@ -21,15 +31,5 @@ public class SLList {
         L.addFirst(5);
         int x = L.getFirst();
         System.out.println(x);
-    }
-
-    public static class IntNode {
-        public int item;
-        public IntNode next;
-
-        public IntNode(int i, IntNode n) {
-            item = i;
-            next = n;
-        }
     }
 }
