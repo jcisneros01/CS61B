@@ -40,14 +40,7 @@ public class SLList {
     }
 
     public int size() {
-        return size (first);
-    }
-
-    private int size(IntNode p) {
-        if (p == null) {
-            return 1;
-        }
-        return 1 + size(p.next);
+        return size;
     }
 
     public static void main(String[] args) {
