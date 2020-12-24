@@ -37,9 +37,26 @@ public class ArrayProblems {
     }
 
     public static void main(String[] args) {
-        int[] array = {1,2,3};
-        reverse(array);
-        printArray(array);
+        int[] array = {3,2,1};
+        var newArray = replicate(array);
+        printArray(newArray);
+    }
+
+    public static int[] replicate(int[] arr) {
+        int count = 0;
+        for (int i: arr) {
+            count += i;
+        }
+        int[] newArr = new int[count];
+
+        int j = 0;
+        for (int value : arr) {
+            for (int counter = 1; counter <= value; counter++) {
+                newArr[j] = value;
+                j++;
+            }
+        }
+        return newArr;
     }
 
     public static void printArray(int[] arr) {
