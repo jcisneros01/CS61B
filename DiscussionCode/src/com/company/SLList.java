@@ -41,12 +41,30 @@ public class SLList {
         p.next = newNode;
     }
 
+    public void reverse() {
+        IntNode prev = null;
+        IntNode current = first;
+
+        while (current != null) {
+            // save next node position
+            IntNode nextNode = current.next;
+            // reverse link
+            current.next = prev;
+            // set current node to previous
+            prev = current;
+            // adv pointer to next node in list
+            current = nextNode;
+        }
+        // point to new front of list
+        first = prev;
+    }
+
     public static void main(String[] args) {
         SLList list = new SLList();
         list.addFirst(2);
         list.addFirst(6);
         list.addFirst(5);
-        list.insert(10, 5);
+        list.reverse();
         list.print();
     }
 }
