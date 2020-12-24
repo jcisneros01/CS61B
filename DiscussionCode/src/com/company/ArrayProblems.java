@@ -26,11 +26,20 @@ public class ArrayProblems {
         return newArr;
     }
 
+    public static void reverse(int[] array) {
+
+        for (int i = 0; i < array.length / 2; i++) {
+            int j = array.length - 1 - i;
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+
     public static void main(String[] args) {
-        int[] array = {5, 9, 14, 15};
-        //printArray(array);
-        var newArr = insert(array, 6, 9);
-        printArray(newArr);
+        int[] array = {1,2,3};
+        reverse(array);
+        printArray(array);
     }
 
     public static void printArray(int[] arr) {
