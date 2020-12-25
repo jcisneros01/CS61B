@@ -57,9 +57,7 @@ public class ArrayProblems {
         int totalLength = 0;
 
         for (int[] subarray : array) {
-            for (int num : subarray) {
-                totalLength++;
-            }
+            totalLength += subarray.length;
         }
 
         int[] flattenedArray = new int[totalLength];

@@ -39,12 +39,10 @@ public class IntList {
         IntList p = this;
         int n = 1;
         while (p != null) {
-
             IntList next = p.rest;
 
             // skip n nodes
             for (int i = 0; i < n; i++) {
-
                 if (next != null) {
                     next = next.rest;
                 }
@@ -68,7 +66,6 @@ public class IntList {
     }
 
     private static void removeDuplicates(IntList p) {
-        IntList head = p;
         if (p == null) {
             return;
         }
