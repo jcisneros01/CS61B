@@ -36,12 +36,6 @@ public class ArrayProblems {
         }
     }
 
-    public static void main(String[] args) {
-        int[] array = {3,2,1};
-        var newArray = replicate(array);
-        printArray(newArray);
-    }
-
     public static int[] replicate(int[] arr) {
         int count = 0;
         for (int i: arr) {
@@ -59,9 +53,38 @@ public class ArrayProblems {
         return newArr;
     }
 
+    public static int[] flatten(int[][] array) {
+        int totalLength = 0;
+
+        for (int[] subarray : array) {
+            for (int num : subarray) {
+                totalLength++;
+            }
+        }
+
+        int[] flattenedArray = new int[totalLength];
+        int index = 0;
+        
+        for (int[] subarray : array) {
+            for (int num : subarray) {
+                flattenedArray[index] = num;
+                index++;
+            }
+        }
+
+        return flattenedArray;
+    }
+
+
     public static void printArray(int[] arr) {
         for (int j : arr) {
             System.out.println(j);
         }
+    }
+
+    public static void main(String[] args) {
+        int[][] arr = {{1, 2, 3}, {}, {7, 8}};
+        var flatArr = flatten(arr);
+        printArray(flatArr);
     }
 }
