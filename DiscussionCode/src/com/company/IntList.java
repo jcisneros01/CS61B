@@ -62,12 +62,30 @@ public class IntList {
     }
 
     public static void main(String[] args) {
-        IntList A = IntList.list(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        A.skippify();
+        IntList A = IntList.list(1, 2, 2, 2, 3);
+        IntList.removeDuplicates(A);
         A.printList();
-        System.out.println("---");
-        IntList B = IntList.list(9, 8, 7, 6, 5, 4, 3, 2, 1);
-        B.skippify();
-        B.printList();
+    }
+
+    private static void removeDuplicates(IntList p) {
+        IntList head = p;
+        if (p == null) {
+            return;
+        }
+
+        IntList current = p.rest;
+        IntList previous = p;
+
+        while(current != null){
+            if (current.first == previous.first) {
+                // bypass dup
+                previous.rest = current.rest;
+            } else {
+                // adv prev ptr
+                previous = current;
+            }
+            // adv current ptr
+            current = current.rest;
+        }
     }
 }
