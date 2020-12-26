@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class IntListTest {
@@ -26,6 +27,7 @@ public class IntListTest {
         IntList.dSquareList(L);
         assertEquals(IntList.of(1, 4, 9), L);
     }
+
 
     /**
      * Do not use the new keyword in your tests. You can create
@@ -64,6 +66,15 @@ public class IntListTest {
         IntList exp = IntList.of(1, 2, 3, 4, 5, 6);
         assertEquals(exp, IntList.catenate(A, B));
         assertEquals(IntList.of(1, 2, 3), A);
+    }
+
+    @Test
+    public void testReverse() {
+        IntList A = IntList.of(0, 1, 2, 3);
+        IntList exp = IntList.of(3,2,1,0);
+        assertEquals(exp, IntList.reverse(A));
+        assertNotEquals(IntList.of(0, 1, 2, 3),A);
+        assertNull(IntList.reverse(null));
     }
 
     /** If you're running this from the command line, you'll need
