@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ListTests {
+public class LinkedListDequeTests {
     @Test
     public void IsSize_ListIsEmpty_ReturnsTrue() {
         var list = new LinkedListDeque<Integer>();

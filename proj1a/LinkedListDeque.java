@@ -94,6 +94,7 @@ public class LinkedListDeque<T> {
             p = p.next;
             count--;
         }
+
         return p.item;
     }
 
@@ -101,8 +102,8 @@ public class LinkedListDeque<T> {
         if (isEmpty()) {
             return null;
         }
+        
         Node last = sentinel.prev;
-
         Node newLast = last.prev;
         newLast.next = sentinel;
         sentinel.prev = newLast;
