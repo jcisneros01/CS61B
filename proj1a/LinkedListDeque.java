@@ -107,7 +107,7 @@ public class LinkedListDeque<T> {
         return getNode(index, p);
     }
 
-    public T getNode(int index, Node p) {
+    private T getNode(int index, Node p) {
         if (index == 0) {
             return p.item;
         }
