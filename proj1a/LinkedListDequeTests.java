@@ -4,34 +4,34 @@ import org.junit.Test;
 
 public class LinkedListDequeTests {
     @Test
-    public void IsSize_ListIsEmpty_ReturnsTrue() {
+    public void isSizeListIsEmptyReturnsTrue() {
         var list = new LinkedListDeque<Integer>();
 
         assertTrue(list.isEmpty());
     }
 
     @Test
-    public void IsSize_ListIsNotEmpty_ReturnsFalse() {
+    public void isSizeListIsNotEmptyReturnsFalse() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(1);
         assertFalse(list.isEmpty());
     }
 
     @Test
-    public void Size_EmptyList_ReturnsZero() {
+    public void sizeEmptyListReturnsZero() {
         var list = new LinkedListDeque<Integer>();
         assertEquals(0, list.size());
     }
 
     @Test
-    public void Size_HasOneValue_ReturnsOne() {
+    public void sizeHasOneValueReturnsOne() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(1);
         assertEquals(1, list.size());
     }
 
     @Test
-    public void Get_AllConditions_ReturnsItem() {
+    public void getAllConditionsReturnsItem() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(10);
         list.addFirst(9);
@@ -42,7 +42,7 @@ public class LinkedListDequeTests {
     }
 
     @Test
-    public void Get_BeyondIndex_ReturnsNull() {
+    public void getBeyondIndexReturnsNull() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(10);
         list.addFirst(9);
@@ -51,20 +51,20 @@ public class LinkedListDequeTests {
     }
 
     @Test
-    public void Get_EmptyList_ReturnsNull() {
+    public void getEmptyListReturnsNull() {
         var list = new LinkedListDeque<Integer>();
         assertEquals(null, list.get(0));
     }
 
     @Test
-    public void AddFirst_EmptyList_AddedItemToFront() {
+    public void addFirstEmptyListAddedItemToFront() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(10);
         assertEquals(10, (int) list.get(0));
     }
 
     @Test
-    public void AddFirst_AddMultipleItems_AddedItemToFront() {
+    public void addFirstAddMultipleItemsAddedItemToFront() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(10);
         list.addFirst(9);
@@ -73,13 +73,13 @@ public class LinkedListDequeTests {
     }
 
     @Test
-    public void RemoveFirst_EmptyList_ReturnsNull() {
+    public void removeFirstEmptyListReturnsNull() {
         var list = new LinkedListDeque<Integer>();
         assertNull(list.removeFirst());
     }
 
     @Test
-    public void RemoveFirst_NonEmptyList_RemovesItems() {
+    public void removeFirstNonEmptyListRemovesItems() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(10);
         list.addFirst(9);
@@ -96,7 +96,7 @@ public class LinkedListDequeTests {
     }
 
     @Test
-    public void RemoveLast_NonEmptyList_RemovesItems() {
+    public void removeLastNonEmptyListRemovesItems() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(10);
         list.addFirst(9);
@@ -113,24 +113,24 @@ public class LinkedListDequeTests {
     }
 
     @Test
-    public void AddLast_EmptyList_AddedItemToFront() {
+    public void addLastEmptyListAddedItemToFront() {
         var list = new LinkedListDeque<Integer>();
         list.addLast(10);
         assertEquals(10, (int) list.get(0));
     }
 
     @Test
-    public void AddLast_AddMultipleItems_AddedItemToFront() {
+    public void addLastAddMultipleItemsAddedItemToFront() {
         var list = new LinkedListDeque<Integer>();
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);
         list.printDeque();
-       assertEquals(3, (int) list.get(2));
+        assertEquals(3, (int) list.get(2));
     }
 
     @Test
-    public void GetRecursive_AllConditions_ReturnsItem() {
+    public void getRecursiveAllConditionsReturnsItem() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(10);
         list.addFirst(9);
@@ -141,7 +141,7 @@ public class LinkedListDequeTests {
     }
 
     @Test
-    public void GetRecursive_BeyondIndex_ReturnsNull() {
+    public void getRecursiveBeyondIndexReturnsNull() {
         var list = new LinkedListDeque<Integer>();
         list.addFirst(10);
         list.addFirst(9);
@@ -150,7 +150,7 @@ public class LinkedListDequeTests {
     }
 
     @Test
-    public void GetRecursive_EmptyList_ReturnsNull() {
+    public void getRecursiveEmptyListReturnsNull() {
         var list = new LinkedListDeque<Integer>();
         assertEquals(null, list.getRecursive(0));
     }
