@@ -128,12 +128,4 @@ public class LinkedListDeque<T> {
 
         return last.item;
     }
-
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> L = new LinkedListDeque<>();
-        L.addFirst(10);
-        L.addFirst(9);
-        L.addFirst(8);
-        L.printDeque();
-    }
 }
