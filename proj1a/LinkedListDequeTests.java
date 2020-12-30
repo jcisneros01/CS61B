@@ -30,7 +30,6 @@ public class LinkedListDequeTests {
         assertEquals(1, list.size());
     }
 
-
     @Test
     public void Get_AllConditions_ReturnsItem() {
         var list = new LinkedListDeque<Integer>();
@@ -128,5 +127,31 @@ public class LinkedListDequeTests {
         list.addLast(3);
         list.printDeque();
        assertEquals(3, (int) list.get(2));
+    }
+
+    @Test
+    public void GetRecursive_AllConditions_ReturnsItem() {
+        var list = new LinkedListDeque<Integer>();
+        list.addFirst(10);
+        list.addFirst(9);
+        list.addFirst(8);
+        assertEquals(8, (int) list.getRecursive(0));
+        assertEquals(9, (int) list.getRecursive(1));
+        assertEquals(10, (int) list.getRecursive(2));
+    }
+
+    @Test
+    public void GetRecursive_BeyondIndex_ReturnsNull() {
+        var list = new LinkedListDeque<Integer>();
+        list.addFirst(10);
+        list.addFirst(9);
+        list.addFirst(8);
+        assertNull(list.getRecursive(3));
+    }
+
+    @Test
+    public void GetRecursive_EmptyList_ReturnsNull() {
+        var list = new LinkedListDeque<Integer>();
+        assertEquals(null, list.getRecursive(0));
     }
 }
