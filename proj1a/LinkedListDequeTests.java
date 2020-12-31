@@ -154,20 +154,4 @@ public class LinkedListDequeTests {
         var list = new LinkedListDeque<Integer>();
         assertEquals(null, list.getRecursive(0));
     }
-
-    @Test
-    public void testMemory() {
-        var list = new LinkedListDeque<Integer>();
-        for (int i = 0; i < 10000; i++) {
-            list.addFirst(i);
-        }
-
-        for (int i = 0; i < 9999; i++) {
-            list.removeFirst();
-        }
-
-        assertEquals(1, list.size());
-        assertEquals(0, (int) list.get(0));
-        assertEquals(0, (int) list.get(0));
-    }
 }

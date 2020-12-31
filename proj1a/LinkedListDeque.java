@@ -74,15 +74,9 @@ public class LinkedListDeque<T> {
             return null;
         }
 
-        // get first node
         Node node = sentinel.next;
-
-        // set new first node
         sentinel.next = node.next;
-
-        // point first nodes prev pointer to sentinel
         sentinel.next.prev = sentinel;
-
         size--;
 
         return node.item;
