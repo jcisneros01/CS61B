@@ -15,7 +15,7 @@ public class LinkedListDeque<T> {
         }
     }
 
-    private final Node sentinel;
+    private Node sentinel;
 
     private int size;
 
@@ -74,12 +74,17 @@ public class LinkedListDeque<T> {
             return null;
         }
 
+        // get first node
         Node node = sentinel.next;
+
+        // set new first node
         sentinel.next = node.next;
+
+        // point first nodes prev pointer to sentinel
+        sentinel.next.prev = sentinel;
+
         size--;
-        if (size == 0) {
-            sentinel.prev = sentinel;
-        }
+
         return node.item;
     }
 
@@ -131,18 +136,5 @@ public class LinkedListDeque<T> {
         size--;
 
         return last.item;
-    }
-
-    public static void main(String[] args)
-    {
-        var list = new LinkedListDeque<Integer>();
-        for (int i = 0; i < 10000; i++) {
-            list.addFirst(i);
-        }
-
-        for (int i = 0; i < 10000; i++) {
-            list.removeLast();
-        }
-        System.out.println(list.size());
     }
 }
