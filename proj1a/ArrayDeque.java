@@ -20,9 +20,14 @@ public class ArrayDeque<T> {
     }
 
     private int computeIndex(int index) {
-        System.out.printf("index: %s", index);
-        System.out.printf("items.length: %s", items.length);
-        return (index + items.length) % items.length;
+        try {
+            index = (index + items.length) % items.length;
+        } catch (Exception e) {
+            System.out.printf("index: %s", index);
+            System.out.printf("items.length: %s", items.length);
+        }
+     
+        return index;
     }
 
     private int plusOne(int index) {
