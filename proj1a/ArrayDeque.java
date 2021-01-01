@@ -8,7 +8,7 @@ public class ArrayDeque<T> {
     private int size;
 
     public ArrayDeque() {
-        items =  (T[]) new Object[8];
+        items =  (T[]) new Object[10000];
         size = 0;
         nextFirst = 4;
         nextLast = 5;
