@@ -8,7 +8,7 @@ public class ArrayDeque<T> {
     private int size;
 
     public ArrayDeque() {
-        items =  (T[]) new Object[10000];
+        items =  (T[]) new Object[8];
         size = 0;
         nextFirst = 4;
         nextLast = 5;
@@ -28,13 +28,43 @@ public class ArrayDeque<T> {
         return computeIndex(index);
     }
 
+    private void resize(int capacity) {
+        T[] newArray = (T[]) new Object[capacity];
+        int newArrayIndex = 0;
+        for (int i = 0; i < size ; i++) {
+            newArray[newArrayIndex] = get(i);
+            newArrayIndex++;
+        }
+        items = newArray;
+        nextFirst = minusOne(0);
+        nextLast = size;
+    }
+
+    private void upSizeIfNeeded() {
+        if (usageRatio() > .75) {
+            resize(items.length * 2);
+        }
+    }
+
+    private void downSizeIfNeeded() {
+        if (usageRatio() < .25) {
+            resize(items.length / 2);
+        }
+    }
+
+    private double usageRatio() {
+        return (double) size / items.length;
+    }
+
     public void addFirst(T item) {
+        upSizeIfNeeded();
         items[nextFirst] = item;
         size++;
         nextFirst = minusOne(nextFirst);
     }
 
     public void addLast(T item) {
+        upSizeIfNeeded();
         items[nextLast] = item;
         size++;
         nextLast = plusOne(nextLast);
@@ -54,6 +84,12 @@ public class ArrayDeque<T> {
         }
     }
 
+    public void printArray() {
+        for (int i = 0; i < items.length; i++) {
+            System.out.printf("%s ", items[i]);
+        }
+    }
+
     public T removeFirst() {
         if (size == 0) {
             return null;
@@ -63,6 +99,8 @@ public class ArrayDeque<T> {
         items[plusOne(nextFirst)] = null;
         nextFirst = plusOne(nextFirst);
         size--;
+
+        downSizeIfNeeded();
 
         return item;
     }
@@ -76,6 +114,8 @@ public class ArrayDeque<T> {
         items[minusOne(nextLast)] = null;
         nextLast = minusOne(nextLast);
         size--;
+
+        downSizeIfNeeded();
 
         return item;
     }
