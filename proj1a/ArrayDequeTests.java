@@ -128,4 +128,21 @@ public class ArrayDequeTests {
         list.printDeque();
         assertEquals(3, (int) list.get(2));
     }
+
+    @Test
+    public void testResizing() {
+        var deq = new ArrayDeque<Character>();
+        deq.addLast('a');
+        deq.addLast('b');
+        deq.addFirst('c');
+        deq.addLast('d');
+        deq.addLast('e');
+        deq.addFirst('f');
+        deq.addLast('g');
+        deq.addLast('h');
+        for (int i = 1; i <= 5 ; i++) {
+            deq.removeLast();
+        }
+        deq.printArray();
+    }
 }
