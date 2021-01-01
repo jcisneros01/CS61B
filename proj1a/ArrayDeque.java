@@ -20,6 +20,8 @@ public class ArrayDeque<T> {
     }
 
     private int computeIndex(int index) {
+        System.out.printf("index: %s", index);
+        System.out.printf("items.length: %s", items.length);
         return (index + items.length) % items.length;
     }
 
@@ -31,7 +33,7 @@ public class ArrayDeque<T> {
     private void resize(int capacity) {
         T[] newArray = (T[]) new Object[capacity];
         int newArrayIndex = 0;
-        for (int i = 0; i < size ; i++) {
+        for (int i = 0; i < size; i++) {
             newArray[newArrayIndex] = get(i);
             newArrayIndex++;
         }
@@ -84,7 +86,7 @@ public class ArrayDeque<T> {
         }
     }
 
-    public void printArray() {
+    private void printArray() {
         for (int i = 0; i < items.length; i++) {
             System.out.printf("%s ", items[i]);
         }
