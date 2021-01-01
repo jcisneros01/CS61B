@@ -131,18 +131,17 @@ public class ArrayDequeTests {
 
     @Test
     public void testResizing() {
-        var deq = new ArrayDeque<Character>();
-        deq.addLast('a');
-        deq.addLast('b');
-        deq.addFirst('c');
-        deq.addLast('d');
-        deq.addLast('e');
-        deq.addFirst('f');
-        deq.addLast('g');
-        deq.addLast('h');
-        for (int i = 1; i <= 5 ; i++) {
+        var deq = new ArrayDeque<Integer>();
+        int index = 0;
+        for (int i = 1; i <= 10000 ; i++) {
+            deq.addLast(i);
+            index++;
+        }
+        deq.printArray();
+        for (int i = 1; i <= 10000 ; i++) {
             deq.removeLast();
         }
         deq.printArray();
+        int result = 10 % -1;
     }
 }
