@@ -82,15 +82,4 @@ public class ArrayDeque<T> {
         index = (index + items.length) % items.length;
         return items[index];
     }
-
-    public static void main(String[] args) {
-        var deq = new ArrayDeque<Character>();
-        deq.addLast('a');
-        deq.addLast('b');
-        deq.addFirst('c');
-        deq.addLast('d');
-        deq.addLast('e');
-        deq.addFirst('f');
-        deq.printDeque();
-    }
 }
