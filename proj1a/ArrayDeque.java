@@ -20,8 +20,6 @@ public class ArrayDeque<T> {
     }
 
     private int computeIndex(int index) {
-        System.out.printf("index: %s", index);
-        System.out.printf("items.length: %s", items.length);
         return (index + items.length) % items.length;
     }
 
@@ -38,7 +36,7 @@ public class ArrayDeque<T> {
             newArrayIndex++;
         }
         items = newArray;
-        nextFirst = minusOne(0);
+        nextFirst = newArray.length - 1;
         nextLast = size;
     }
 
