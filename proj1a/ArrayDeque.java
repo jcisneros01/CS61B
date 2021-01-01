@@ -29,6 +29,10 @@ public class ArrayDeque<T> {
     }
 
     private void resize(int capacity) {
+        if (capacity == 0) {
+            throw new IllegalArgumentException("Zero is not a valid resize arg");
+        }
+
         T[] newArray = (T[]) new Object[capacity];
         int newArrayIndex = 0;
         for (int i = 0; i < size; i++) {
