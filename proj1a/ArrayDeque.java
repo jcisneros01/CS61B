@@ -51,7 +51,7 @@ public class ArrayDeque<T> {
     }
 
     private void downSizeIfNeeded() {
-        if (usageRatio() < .25) {
+        if (items.length >= 16 && usageRatio() < .25) {
             resize(items.length / 2);
         }
     }
