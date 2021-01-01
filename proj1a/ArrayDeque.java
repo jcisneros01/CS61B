@@ -16,12 +16,16 @@ public class ArrayDeque<T> {
 
     private int minusOne(int index) {
         index--;
+        return computeIndex(index);
+    }
+
+    private int computeIndex(int index) {
         return (index + items.length) % items.length;
     }
 
     private int plusOne(int index) {
         index++;
-        return (index + items.length) % items.length;
+        return computeIndex(index);
     }
 
     public void addFirst(T item) {
@@ -57,7 +61,7 @@ public class ArrayDeque<T> {
 
         var item = items[plusOne(nextFirst)];
         items[plusOne(nextFirst)] = null;
-        nextFirst = plusOne(nextFirst); // move up pointer
+        nextFirst = plusOne(nextFirst);
         size--;
 
         return item;
@@ -70,16 +74,13 @@ public class ArrayDeque<T> {
 
         var item = items[minusOne(nextLast)];
         items[minusOne(nextLast)] = null;
-        nextLast = minusOne(nextLast); // move pointer down
+        nextLast = minusOne(nextLast);
         size--;
 
         return item;
     }
 
     public T get(int index) {
-        var firstIndex = plusOne(nextFirst);
-        index = index + firstIndex;
-        index = (index + items.length) % items.length;
-        return items[index];
+        return items[computeIndex(index + plusOne(nextFirst))];
     }
 }
