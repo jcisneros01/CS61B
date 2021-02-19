@@ -1,4 +1,8 @@
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class TestPalindrome {
@@ -14,5 +18,21 @@ public class TestPalindrome {
             actual += d.removeFirst();
         }
         assertEquals("persiflage", actual);
+    }
+
+    @Test
+    public void isNotPalindrome() {
+        var strings = List.of("horse","rancor","aaaaab");
+        for (String str: strings) {
+            assertFalse(palindrome.isPalindrome(str));
+        }
+    }
+
+    @Test
+    public void isPalindrome() {
+        var strings = List.of("a","racecar","noon", "");
+        for (String str: strings) {
+            assertTrue(palindrome.isPalindrome(str));
+        }
     }
 }
