@@ -1,6 +1,5 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -22,7 +21,7 @@ public class TestPalindrome {
 
     @Test
     public void isNotPalindrome() {
-        var strings = List.of("horse","rancor","aaaaab");
+        var strings = List.of("horse", "rancor", "aaaaab");
         for (String str: strings) {
             assertFalse(palindrome.isPalindrome(str));
         }
@@ -30,7 +29,7 @@ public class TestPalindrome {
 
     @Test
     public void isPalindrome() {
-        var strings = List.of("a","racecar","noon", "");
+        var strings = List.of("a", "racecar", "noon", "");
         for (String str: strings) {
             assertTrue(palindrome.isPalindrome(str));
         }
@@ -38,7 +37,7 @@ public class TestPalindrome {
 
     @Test
     public void isNotPalindromeOverloaded() {
-        var strings = List.of("horse","rancor","aaaaab");
+        var strings = List.of("horse", "rancor", "aaaaab");
         for (String str: strings) {
             assertFalse(palindrome.isPalindrome(str, new OffByOne()));
         }
@@ -46,7 +45,7 @@ public class TestPalindrome {
 
     @Test
     public void isPalindromeOverloaded() {
-        var strings = List.of("a","flake", "");
+        var strings = List.of("a", "flake", "");
         for (String str: strings) {
             assertTrue(palindrome.isPalindrome(str, new OffByOne()));
         }
