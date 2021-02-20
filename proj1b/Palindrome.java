@@ -20,4 +20,17 @@ public class Palindrome {
 
         return true;
     }
+
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        var chars = wordToDeque(word);
+        while (chars.size() > 1) {
+            var first = chars.removeFirst();
+            var last = chars.removeLast();
+            if (!cc.equalChars(first, last)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

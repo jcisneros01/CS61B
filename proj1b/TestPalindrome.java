@@ -35,4 +35,20 @@ public class TestPalindrome {
             assertTrue(palindrome.isPalindrome(str));
         }
     }
+
+    @Test
+    public void isNotPalindromeOverloaded() {
+        var strings = List.of("horse","rancor","aaaaab");
+        for (String str: strings) {
+            assertFalse(palindrome.isPalindrome(str, new OffByOne()));
+        }
+    }
+
+    @Test
+    public void isPalindromeOverloaded() {
+        var strings = List.of("a","flake", "");
+        for (String str: strings) {
+            assertTrue(palindrome.isPalindrome(str, new OffByOne()));
+        }
+    }
 }
