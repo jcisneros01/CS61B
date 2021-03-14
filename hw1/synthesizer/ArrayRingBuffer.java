@@ -14,8 +14,8 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
      */
     public ArrayRingBuffer(int capacity) {
         rb = (T[]) new Object[capacity];
-        first = 0;
-        last = 0;
+        first = 2;
+        last = 2;
         fillCount = 0;
         this.capacity = capacity;
     }
@@ -26,14 +26,18 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
      * covered Monday.
      */
     public void enqueue(T x) {
-        // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
         if (isFull()) {
             throw new RuntimeException("Ring buffer overflow");
         }
+
         rb[last] = x;
-        // wrap around
+        fillCount++;
         last++;
 
+        // wrap around
+        if (last == capacity) {
+            last = 0;
+        }
     }
 
     /**
@@ -42,12 +46,20 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
      * covered Monday.
      */
     public T dequeue() {
-        // TODO: Dequeue the first item. Don't forget to decrease fillCount and update
+        if (isEmpty()) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
+
         var item = rb[first];
         rb[first] = null;
         fillCount--;
-        // wrap around
         first++;
+
+        // wrap around
+        if (first == capacity) {
+            first = 0;
+        }
+
         return item;
     }
 
@@ -59,4 +71,11 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
     }
 
     // TODO: When you get to part 5, implement the needed code to support iteration.
+    public void printBuffer() {
+        for (var i:rb) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\nFirst: " + first);
+        System.out.println("Last: " + last);
+    }
 }
