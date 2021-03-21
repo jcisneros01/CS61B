@@ -46,10 +46,4 @@ public class GuitarString {
     public double sample() {
         return buffer.peek();
     }
-
-    public static void main(String[] args) {
-        var gs = new GuitarString(4410);
-        gs.pluck();
-    }
-
 }
