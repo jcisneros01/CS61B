@@ -71,7 +71,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
          return rb[first];
     }
 
-    public void printBuffer() {
+    private void printBuffer() {
         for (var i:rb) {
             System.out.print(i + " ");
         }
@@ -84,7 +84,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
         return new ArrayRingBufferIterator();
     }
 
-    public class ArrayRingBufferIterator implements Iterator<T> {
+    private class ArrayRingBufferIterator implements Iterator<T> {
         private int count;
         private int index;
 
