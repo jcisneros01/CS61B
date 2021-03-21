@@ -15,7 +15,6 @@ public class GuitarString {
         for (int i = 0; i < buffer.capacity(); i++) {
             buffer.enqueue(0.0);
         }
-        buffer.printBuffer();
     }
 
     /* Pluck the guitar string by replacing the buffer with white noise. */
@@ -32,7 +31,6 @@ public class GuitarString {
                 buffer.enqueue(randomNum);
             }
         }
-        buffer.printBuffer();
     }
 
     /* Advance the simulation one time step by performing one iteration of
