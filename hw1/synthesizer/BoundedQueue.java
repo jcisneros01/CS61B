@@ -16,4 +16,6 @@ public interface BoundedQueue<T> {
     default boolean isFull()   {
         return fillCount() == capacity();
     }
+
+    void printBuffer();
 }
