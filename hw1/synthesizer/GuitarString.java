@@ -1,7 +1,5 @@
 package synthesizer;
 
-import com.sun.source.tree.DoWhileLoopTree;
-
 import java.util.HashSet;
 
 public class GuitarString {
@@ -51,8 +49,7 @@ public class GuitarString {
         return buffer.peek();
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         var gs = new GuitarString(4410);
         gs.pluck();
     }

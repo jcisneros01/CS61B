@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  */
 
 public class TestGuitarString {
-    @Test
+/*    @Test
     public void testPluckTheAString() {
         double CONCERT_A = 440.0;
         GuitarString aString = new GuitarString(CONCERT_A);
@@ -50,7 +50,7 @@ public class TestGuitarString {
         // for assertEquals(double, double)
         assertEquals(expected, s5, 0.001);
 
-    }
+    }*/
 
     /** Calls tests for GuitarString. */
     public static void main(String[] args) {
