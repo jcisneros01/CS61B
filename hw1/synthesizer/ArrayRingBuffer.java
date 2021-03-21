@@ -1,5 +1,8 @@
 package synthesizer;
 
+import java.util.Iterator;
+import java.util.function.Consumer;
+
 //TODO: Make sure to make this class and all of its methods public
 public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
     /* Index for the next dequeue or peek. */
@@ -77,5 +80,39 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
         }
         System.out.println("\nFirst: " + first);
         System.out.println("Last: " + last);
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayRingBufferIterator();
+    }
+
+    public class ArrayRingBufferIterator implements Iterator<T> {
+        private int count;
+        private int index;
+
+        public ArrayRingBufferIterator() {
+            count = 0;
+            index = first;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return count < fillCount;
+        }
+
+        @Override
+        public T next() {
+            var next = rb[count];
+
+            count++;
+            index++;
+
+            if (index == capacity) {
+                first = 0;
+            }
+            
+            return next;
+        }
     }
 }

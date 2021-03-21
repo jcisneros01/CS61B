@@ -23,7 +23,10 @@ public class TestArrayRingBuffer {
         arb.enqueue(7);
         arb.enqueue(8);
         arb.enqueue(9);
-        arb.printBuffer();
+
+        for (var i:arb) {
+            System.out.print(i + " ");
+        }
     }
 
     /** Calls tests for ArrayRingBuffer. */
