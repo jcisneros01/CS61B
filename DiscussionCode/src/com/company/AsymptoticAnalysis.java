@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class AsymptoticAnalysis {
     public static void main(String[] args) {
@@ -12,7 +9,27 @@ public class AsymptoticAnalysis {
     }
 
     private static int[] intersection(int[] A, int[] B) {
-        return new int[]{};
+        HashSet<Integer> numbers = new HashSet<Integer>();
+        List<Integer> intersection = new ArrayList<Integer>();
+
+        for (int i = 0; i < A.length; i++) {
+            numbers.add(A[i]);
+        }
+
+        for (int j = 0; j < B.length; j++) {
+            if (numbers.contains(B[j])) {
+                intersection.add(B[j]);
+            }
+        }
+
+        var intersectionArray = new int[intersection.size()];
+        int k = 0;
+        for (int intersectionNum: intersection) {
+            intersectionArray[k] = intersectionNum;
+            k++;
+        }
+
+        return intersectionArray;
     }
 
     public static boolean findSum(int[] A, int x) {
